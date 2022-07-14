@@ -1,0 +1,173 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Golos Text", sans-serif;
+  font-size: $mainFontSize;
+  color: $secondPageColor;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: $containerWidth;
+  margin: 0 auto;
+}
+
+.btn {
+  font-family: "RoadRadio", sans-serif;
+  color: #FFFFFF;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: center;
+  width: 190px;
+  padding: 19px 0;
+  background: $mainPageColor;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.title {
+  font-family: "RoadRadio", sans-serif;
+  color: $secondPageColor;
+}
+
+.header {
+  font-size: 15px;
+  padding: 13px 0 15px 0;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icons {
+    display: flex;
+    margin-right: 59px;
+  }
+
+  &__contacts {
+    margin-right: 59px;
+  }
+
+  &__search, &__compare {
+    cursor: pointer;
+  }
+
+  &__compare {
+    margin-right: 25px;
+  }
+
+  &__number {
+    margin-bottom: 6px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  &__email {
+    font-family: "Graphik LC", sans-serif;
+    color: $regularTextColor;
+    font-size: 13px;
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+
+  &__icon {
+    position: relative;
+    width: 34px;
+    height: 12px;
+    margin-right: 59px;
+    cursor: pointer;
+
+    &::before, &::after {
+      background-color: $secondPageColor;
+      content: "";
+      position: absolute;
+      height: 2px;
+      border-radius: 5px;
+    }
+
+    &::before {
+      top: 1px;
+      left: 0;
+      width: 100%;
+    }
+
+    &::after {
+      bottom: 1px;
+      left: 0;
+      width: 50%;
+    }
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    margin-right: 46px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    color: inherit;
+  }
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.navigation {
+  background-color: $contactsBackgroundColor;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+    opacity: 0.1;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    margin: 21px 0 25px 0;
+  }
+
+  &__dot {
+    height: 1.5px;
+    width: 1.5px;
+    border-radius: 50%;
+    background-color: #797986;
+    margin: 0 14px;
+  }
+
+  &__item {
+    color: #C9C9CF;
+
+    &_active {
+      color: #797986;
+    }
+  }
+}
+
+
+
