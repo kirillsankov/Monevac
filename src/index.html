@@ -53,45 +53,53 @@
     </div>
     <main class="main">
         <section class="contacts">
+            <h1 class="contacts__title title">Контакты</h1>
             <div class="container">
-                <h1 class="contacts__title title">Контакты</h1>
-                <div class="contacts__info">
-                    <div class="contacts__number title">8 (903) 467 98 51</div>
-                    <div class="contacts__email">info@monevac.ru</div>
-                    <div class="contacts__description">
-                        Полное наименование:
-                        Общество с ограниченной ответственностью «МОНЕВАК»
-                        Сокращенное наименование: ООО «МОНЕВАК»
-                    </div>
-                    <div class="contacts__all-information">
-                        ИНН: 3448050610
-                        КПП: 344801001
-                        ОКПО: 67354285
-                        ОКАТО: 18401000000
-                        ОГРН: 1103461002480
-                        Код по ОКВЭД: 51.70
-
-                        Банк: Филиала «Ростовский» ОАО «Альфа-Банк» г Ростов на Дону
-                        БИК: 046015207
-                        к/с: 30101810500000000207
-                        р/с: 40702810926090000003
-
-                        Юридический адрес: 400080, Волгоградская обл. г. Волгоград
-                        ул. Командира Рудь,14А, офис 13
-                        Почтовый адрес: 400080, Волгоградская обл. г. Волгоград
-                        ул. Командира Рудь, 14А, офис 13
-                    </div>
+                <div class="contacts__wrapper">
+                    <div class="contacts__info">
+                        <div class="contacts__subtitle title">8 (903) 467 98 51</div>
+                        <div class="contacts__email">info@monevac.ru</div>
+                        <div class="contacts__description">
+                            Полное наименование: <br>
+                            Общество с ограниченной ответственностью «МОНЕВАК»<br>
+                            Сокращенное наименование: ООО «МОНЕВАК»<br>
+                        </div>
+                        <div class="contacts__details">
+                            ИНН: 3448050610<br>
+                            КПП: 344801001<br>
+                            ОКПО: 67354285<br>
+                            ОКАТО: 18401000000<br>
+                            ОГРН: 1103461002480<br>
+                            Код по ОКВЭД: 51.70<br>
+                        </div>
+                        <div class="contacts__details">
+                            Банк: Филиала «Ростовский» ОАО «Альфа-Банк» г Ростов на Дону<br>
+                            БИК: 046015207<br>
+                            к/с: 30101810500000000207<br>
+                            р/с: 40702810926090000003<br>
+                        </div>
+                        <div class="contacts__details">
+                            Юридический адрес: 400080, Волгоградская обл. г. Волгоград<br>
+                            ул. Командира Рудь,14А, офис 13<br>
+                            Почтовый адрес: 400080, Волгоградская обл. г. Волгоград<br>
+                            ул. Командира Рудь, 14А, офис 13<br>
+                        </div>
                 </div>
-                <div class="contacts__form">
-                    <div class="contacts__form-title title">Оставлись вопросы?</div>
-                    <form action="/" method="get">
-                        <input type="text" name="name" id="name" placeholder="Ваше имя">
-                        <input type="tel" name="phone" id="phone" placeholder="Ваш телефон">
-                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Ваше сообщение">
-                        </textarea>
-                        <input type="checkbox" name="" id="">
-                        <label for="">Я подтверждаю свое согласие с политикой в отношении <span>обработкиперсональных данных</span></label>
-                    </form>
+                    <div class="contacts__form">
+                        <div class="contacts__subtitle title">Оставлись вопросы?</div>
+                        <form class="form" action="/" method="get">
+                            <label class="form__name"><input class="form__input " type="text" name="name" id="name" placeholder="Ваше имя"></label>
+                            <label class="form__phone"><input class="form__input " type="tel" name="phone" id="phone" placeholder="Ваш телефон"></label>
+                            <label class="form__message">
+                                <textarea class="form__input form__input_none-resize" name="message" id="message" cols="30" rows="10" placeholder="Ваше сообщение"></textarea>
+                            </label>
+                            <input class="form__checkbox form__input_hidden" type="checkbox" name="checkbox" id="checkbox">
+                            <label for="checkbox" class="form__label-checkbox">
+                                Я подтверждаю свое согласие с политикой в отношении <a href="#" class="form__personal-data">обработкиперсональных данных</a>
+                            </label>
+                            <button class="form__button btn" type="submit">Задать вопрос</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
