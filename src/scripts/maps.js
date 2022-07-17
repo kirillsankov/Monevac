@@ -86,27 +86,49 @@ export default class Maps {
             zoom: 5
         });
     }
+
     addRouteLinkListener() {
-        for(let link of this.routeLinks){
+        for (let link of this.routeLinks) {
             link.addEventListener("click", (e) => {
-                let coordinates = link.parentNode.querySelector('.carts__address').innerText;
-                this.createRoute(coordinates);
-                e.preventDefault();
+                this.routeLinkListener(e, link);
             })
         }
     }
+
+    routeLinkListener(e, link) {
+        let coordinates = link.parentNode.querySelector('.carts__address').innerText;
+        this.goToMap(link);
+        this.createRoute(coordinates);
+        e.preventDefault();
+    }
+
+    goToMap(link) {
+        const headerHeight = document.querySelector('.header').offsetHeight
+        const gotoBlock = document.querySelector(link.dataset.goto);
+        const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - headerHeight;
+
+        window.scrollTo({
+            top: gotoBlockValue,
+            behavior: "smooth",
+        });
+    }
+
     createRoute(coordinates) {
-        this.map.controls.add('routePanelControl');
-        let control = this.map.controls.get('routePanelControl')
+        this.map.controls.add('routeButtonControl');
+        let control = this.map.controls.get('routeButtonControl');
+        this.settingsRoute(control, coordinates);
+    }
+    settingsRoute(control, coordinates) {
+        control.routePanel.geolocate('from');
+
+        control.state.set('expanded', true);
         control.routePanel.state.set({
-            type: 'masstransit',
+            type: 'bus',
             fromEnabled: true,
-            from: "Ленина д 27",
             toEnabled: false,
             to: coordinates,
         });
     }
-
     createAllPlacemark(maps) {
         for (let key in markers) {
             this.createPlacemark(maps, markers[key]["coordinates"], markers[key]["city"], markers[key]["address"], markers[key]["phone"], markers[key]["time"]);
@@ -159,7 +181,7 @@ export default class Maps {
     }
 
     setCustomSettingsMap(map) {
-        map.options.set('balloonAutoPan', false)
+        map.options.set('balloonAutoPan', false);
         map.controls.remove('geolocationControl');
         map.controls.remove('searchControl');
         map.controls.remove('trafficControl');
