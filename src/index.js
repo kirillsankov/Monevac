@@ -1,14 +1,8 @@
 import './styles/index.scss';
+import Maps from './scripts/maps';
 
-const userStack = {
-    language: 'JavaScript',
-    framework: 'Angular',
-};
 
-const user = {
-    name: 'Vitalij',
-    age: '37',
-    ...userStack
-};
 
-console.log(user);
+document.addEventListener('DOMContentLoaded', (e) => {
+    [...document.querySelectorAll('#map')].forEach((elem) => new Maps(elem));
+})

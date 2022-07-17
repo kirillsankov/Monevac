@@ -351,7 +351,7 @@ body {
     }
 
     &:focus + .form__placeholder,
-    &:not(:placeholder-shown) + .form__placeholder{
+    &:not(:placeholder-shown) + .form__placeholder {
       font-size: 12px;
       top: 5px;
       left: 22px;
@@ -372,13 +372,44 @@ body {
 .map {
   padding-bottom: 81px;
 
-  &__template {
+  &__wrapper {
     height: 599px;
     width: 100%;
-    background-color: $mainPageColor;
   }
 }
 
+[class*="copyrights-pane"] {
+  display: none !important;
+}
+
+[class*="ground-pane"] {
+  filter: grayscale(1);
+}
+
+.balloon {
+  color: $secondPageColor;
+
+  &__city {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  &__address,
+  &__contacts {
+    margin-bottom: 5px;
+  }
+
+  &__address, &__link, &__time {
+    font-family: "Golos Text", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  &__link {
+    color: $mainPageColor;
+  }
+}
 
 .carts {
   padding-bottom: 100px;
