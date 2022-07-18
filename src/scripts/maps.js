@@ -96,10 +96,19 @@ export default class Maps {
     }
 
     routeLinkListener(e, link) {
-        let coordinates = link.parentNode.querySelector('.carts__address').innerText;
+        let address = link.parentNode.querySelector('.carts__address').textContent;
+        let coordinates = this.findCoordinate(address.trim());
         this.goToMap(link);
         this.createRoute(coordinates);
         e.preventDefault();
+    }
+
+    findCoordinate(address) {
+        for (let key in markers) {
+            if (markers[key]["address"] === address) {
+                return markers[key]["coordinates"];
+            }
+        }
     }
 
     goToMap(link) {
@@ -118,7 +127,13 @@ export default class Maps {
         let control = this.map.controls.get('routeButtonControl');
         this.settingsRoute(control, coordinates);
     }
+
     settingsRoute(control, coordinates) {
+        this.settingsRouteMain(control, coordinates);
+        this.settingsRouteLine(control);
+    }
+
+    settingsRouteMain(control, coordinates) {
         control.routePanel.geolocate('from');
 
         control.state.set('expanded', true);
@@ -129,6 +144,19 @@ export default class Maps {
             to: coordinates,
         });
     }
+
+    settingsRouteLine(control) {
+        let multiRoutePromise = control.routePanel.getRouteAsync();
+
+        multiRoutePromise.then(function (multiRoute) {
+            multiRoute.options.set({
+                wayPointFinishVisible: false,
+            });
+        }, function (err) {
+            console.log(err);
+        });
+    }
+
     createAllPlacemark(maps) {
         for (let key in markers) {
             this.createPlacemark(maps, markers[key]["coordinates"], markers[key]["city"], markers[key]["address"], markers[key]["phone"], markers[key]["time"]);

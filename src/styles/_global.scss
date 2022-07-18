@@ -333,6 +333,8 @@ body {
   &__input {
     background: $sectionBackgroundColor;
     width: 100%;
+    font: inherit;
+    color: $secondPageColor;
     border-radius: 30px;
     padding: 17px 20px 11px 20px;
     border: 2px solid $sectionBackgroundColor;
@@ -356,6 +358,30 @@ body {
       top: 5px;
       left: 22px;
     }
+  }
+
+  &__input-error {
+    background-color: rgba(191, 39, 56, 0.12);
+    border: none;
+  }
+  &__input-error + &__placeholder,
+  &__input-error + &__label-checkbox,
+  &__error,
+  &__input-error{
+    color: #BF2738;
+  }
+
+  &__input-error + &__label-checkbox > &__personal-data {
+    color: #991F2D;
+  }
+
+  &__input-error + &__label-checkbox::before {
+    background-color: rgba(191, 39, 56, 0.12);
+  }
+
+  &__error {
+    font-size: 12px;
+    padding-left: 30px;
   }
 
   &__placeholder {

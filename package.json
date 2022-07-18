@@ -35,6 +35,8 @@
     "webpack-dev-server": "^4.9.2"
   },
   "dependencies": {
+    "@enp/inputmask": "^5.0.11",
+    "just-validate": "^3.8.1",
     "ymaps": "^0.2.1"
   }
 }
