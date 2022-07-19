@@ -17,12 +17,6 @@ export default class ValidateForm {
         this.addTelMask();
         this.JustValidate();
     }
-    deleteSideMessage() {
-        const sideMessage = this.block.querySelector('.form__button + .form__error');
-        if(sideMessage) {
-            sideMessage.remove();
-        }
-    }
     addTelMask() {
         const inputMasks = new Inputmask('+7(999)-999-99-99', {showMaskOnHover: false});
         inputMasks.mask(this.telBlock);
@@ -41,8 +35,8 @@ export default class ValidateForm {
             },
             {
                 rule: 'minLength',
-                value: 3,
-                errorMessage: 'Поле не должна быть короче 3 символов',
+                value: 2,
+                errorMessage: 'Поле не должна быть короче 2 символов',
             },
             {
                 rule: 'maxLength',
@@ -58,7 +52,7 @@ export default class ValidateForm {
             {
                 validator: () => {
                     const phone = this.telBlock.inputmask.unmaskedvalue();
-                    return phone.length === 10 && Number(phone);
+                    return Boolean(phone.length === 10 && Number(phone));
                 },
                 errorMessage: 'Данные введены не корректно'
             }
@@ -81,14 +75,21 @@ export default class ValidateForm {
         ]).addField("#checkbox", [
             {
                 rule: "required",
-                errorMessage: "delete",
+                errorMessage: "Согласитесь с политикой обработки персональных данных",
             }
-        ]).onSuccess((event) => {
-            console.log('Форма отправлена ', event);
-        }).onFail((fields) => {
-            this.deleteSideMessage();
-            console.log('Форма не отправлена ', fields);
+        ]).onSuccess(() => {
+            this.submitForm();
+            alert("Форма отправлена");
+            this.block.reset();
         });
     }
 
+    submitForm() {
+       fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            body: new FormData(this.block),
+        })
+            .then(response => response.json())
+            .then(json => console.log(json));
+    }
 }

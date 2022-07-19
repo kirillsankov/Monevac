@@ -1,5 +1,10 @@
 import ymaps from 'ymaps';
 
+const SELECTORS = {
+    header: ".header",
+    links: ".carts__link",
+    address: ".carts__address",
+}
 const placeMark = {
     iconLayout: 'default#image',
     iconImageHref: '../images/marker.svg',
@@ -62,7 +67,7 @@ const markers = {
 export default class Maps {
     constructor() {
         this.map = null;
-        this.routeLinks = document.querySelectorAll('.carts__link')
+        this.routeLinks = document.querySelectorAll(SELECTORS.links)
         this.transition = 1000;
         this.init();
     }
@@ -96,7 +101,7 @@ export default class Maps {
     }
 
     routeLinkListener(e, link) {
-        let address = link.parentNode.querySelector('.carts__address').textContent;
+        let address = link.parentNode.querySelector(SELECTORS.address).textContent;
         let coordinates = this.findCoordinate(address.trim());
         this.goToMap(link);
         this.createRoute(coordinates);
@@ -112,7 +117,7 @@ export default class Maps {
     }
 
     goToMap(link) {
-        const headerHeight = document.querySelector('.header').offsetHeight
+        const headerHeight = document.querySelector(SELECTORS.header).clientHeight
         const gotoBlock = document.querySelector(link.dataset.goto);
         const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - headerHeight;
 
