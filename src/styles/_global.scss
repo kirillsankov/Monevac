@@ -9,11 +9,53 @@ body {
   font-weight: 400;
   display: flex;
   flex-direction: column;
+  padding-top: 92px;
+  @media (max-width: $l) {
+    padding-top: 67.7px;
+  }
 }
 
 .container {
   max-width: $containerWidth;
+  width: 100%;
   margin: 0 auto;
+  @media (max-width: 1400px) {
+    max-width: $containerWidthMax1400;
+  }
+  @media (max-width: $el) {
+    max-width: $containerWidthMaxEl;
+  }
+  @media (max-width: $l) {
+    max-width: $containerWidthMaxL;
+  }
+  @media (max-width: $md) {
+    max-width: $containerWidthMaxMd;
+  }
+  @media (max-width: $sm) {
+    max-width: $containerWidthMaxSm;
+    padding: 0 16px;
+  }
+}
+
+.logo {
+  display: inline-block;
+  width: 100%;
+  @media (max-width: $l) {
+    display: none;
+  }
+  @media (max-width: $md) {
+    display: inline-block;
+  }
+}
+
+.logo-tablet {
+  display: none;
+  @media (max-width: $l) {
+    display: inline-block;
+  }
+  @media (max-width: $md) {
+    display: none;
+  }
 }
 
 .btn {
@@ -53,6 +95,10 @@ body {
   transform: translateX(-50%);
   z-index: 5;
   transition: box-shadow 1s;
+  @media (max-width: $l) {
+    font-size: 14px;
+    padding: 18px 0 17px 0;
+  }
 
   &__content {
     display: flex;
@@ -64,6 +110,24 @@ body {
     box-shadow: 0 -10px 25px black;
   }
 
+  &__middle {
+    width: 106px;
+    height: 64px;
+    @media (max-width: $el) {
+      transform: translateX(-32px);
+    }
+    @media (max-width: $l) {
+      width: 90px;
+      height: 30px;
+      transform: translateX(-14px);
+    }
+    @media (max-width: $md) {
+      transform: translateX(-10px);
+      width: 67px;
+      height: 40px;
+    }
+  }
+
   &__right {
     display: flex;
     align-items: center;
@@ -72,14 +136,34 @@ body {
   &__icons {
     display: flex;
     margin-right: 59px;
+    @media (max-width: $el) {
+      margin-right: 48px;
+    }
+    @media (max-width: $md) {
+      margin-right: 0;
+    }
   }
 
   &__contacts {
     margin-right: 59px;
+    @media (max-width: $el) {
+      margin-right: 0;
+    }
+    @media (max-width: $md) {
+      display: none;
+    }
   }
 
   &__search, &__compare {
     cursor: pointer;
+  }
+
+  &__compare {
+    font-size: 16px;
+  }
+
+  &__search {
+    font-size: 19px;
   }
 
   &__compare {
@@ -92,12 +176,21 @@ body {
     margin-bottom: 6px;
     font-size: 15px;
     font-weight: 500;
+    @media (max-width: $l) {
+      margin-bottom: 3px;
+    }
   }
 
   &__email {
     font-family: "Graphik LC", sans-serif;
     color: $regularMainTextColor;
     font-size: 13px;
+  }
+
+  &__button {
+    @media (max-width: $el) {
+      display: none;
+    }
   }
 }
 
@@ -107,10 +200,15 @@ body {
 
   &__icon {
     position: relative;
-    width: 34px;
+    width: 32px;
     height: 12px;
     margin-right: 59px;
     cursor: pointer;
+    @media (max-width: $l) {
+      width: 23px;
+      height: 10px;
+      margin-right: 48px;
+    }
 
     &::before, &::after {
       background-color: $secondPageColor;
@@ -121,13 +219,13 @@ body {
     }
 
     &::before {
-      top: 1px;
+      top: 0;
       left: 0;
       width: 100%;
     }
 
     &::after {
-      bottom: 1px;
+      bottom: 0;
       left: 0;
       width: 50%;
     }
@@ -135,13 +233,29 @@ body {
 
   &__list {
     display: flex;
+    @media (max-width: $md) {
+      display: none;
+    }
   }
 
   &__item {
     margin-right: 46px;
+    @media (max-width: $el) {
+      margin-right: 30px
+    }
+
+    &:nth-of-type(2) {
+      @media (max-width: $el) {
+        margin-right: 0;
+      }
+    }
 
     &:last-of-type {
       margin-right: 0;
+
+      @media (max-width: $el) {
+        display: none;
+      }
     }
   }
 
@@ -205,8 +319,8 @@ body {
     text-align: center;
     padding: 24px 0 30px 0;
     margin-bottom: 62px;
-    font-size: 46px;
-    line-height: 100%;
+    font-size: $h1FontSize;
+    line-height: $h1LineHeight;
   }
 
   &__wrapper {
@@ -219,8 +333,8 @@ body {
   }
 
   &__subtitle {
-    font-size: 36px;
-    line-height: 110%;
+    font-size: $h2FontSize;
+    line-height: $h2LineHeight;
     display: block;
   }
 
@@ -479,9 +593,9 @@ body {
   }
 
   &__title {
-    font-size: 26px;
+    font-size: $h4FontSize;
     margin-bottom: 15px;
-    line-height: 110%;
+    line-height: $h4LineHeight;
   }
 
   &__number {

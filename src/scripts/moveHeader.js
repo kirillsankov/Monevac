@@ -8,12 +8,7 @@ export default class MoveHeader {
     }
 
     init() {
-        this.addPaddingHeader();
         this.addListener();
-    }
-
-    addPaddingHeader() {
-        document.body.style.paddingTop = this.block.clientHeight + "px";
     }
 
     addListener() {
