@@ -67,8 +67,10 @@ const markers = {
 export default class Maps {
     constructor() {
         this.map = null;
-        this.routeLinks = document.querySelectorAll(SELECTORS.links)
+        this.routeLinks = document.querySelectorAll(SELECTORS.links);
         this.transition = 1000;
+        this.coordinate = [48.83757049075884, 59.89448448608449];
+        this.zoom = 5;
         this.init();
     }
 
@@ -78,6 +80,7 @@ export default class Maps {
 
     init() {
         this.load().then(maps => {
+            this.adapt();
             this.createMap(maps);
             this.setCustomSettingsMap(this.map);
             this.createAllPlacemark(maps);
@@ -85,10 +88,19 @@ export default class Maps {
         }).catch(error => console.log('Failed to load Yandex Maps', error));
     }
 
+    adapt() {
+        if(window.innerWidth < 1200 && window.innerWidth > 600) {
+            this.zoom = 4;
+        }else if(window.innerWidth <= 600) {
+            this.coordinate = [50.18251922315779,41.63914654296874];
+            this.zoom = 4;
+        }
+    }
+
     createMap(maps) {
         this.map = new maps.Map('map', {
-            center: [48.83757049075884, 59.89448448608449],
-            zoom: 5
+            center: this.coordinate,
+            zoom: this.zoom,
         });
     }
 

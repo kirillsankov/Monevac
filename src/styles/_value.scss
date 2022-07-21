@@ -13,10 +13,21 @@ $sm: 575px;
 
 $mainFontSize: 14px;
 
-$h1FontSize: 46px;
+
+$h1FontSizeDesktop: 46px;
+$h1FontSizeTablet: 32px;
+$h1FontSizeMobile: 22px;
 $h1LineHeight: 100%;
-$h2FontSize: 36px;
-$h2LineHeight: 110%;
+
+
+$h2FontSizeDesktop: 36px;
+$h2FontSizeTablet: 28px;
+$h2FontSizeMobile: 22px;
+$h2LineHeightDesktop: 110%;
+$h2LineHeightTablet: 120%;
+$h2LineHeightMobile: 100%;
+
+
 $h4FontSize: 26px;
 $h4LineHeight: 120%;
 
