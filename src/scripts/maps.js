@@ -81,7 +81,7 @@ export default class Maps {
 
     init() {
         this.load().then(maps => {
-            this.adapt();
+            this.adaptMap();
             this.createMap(maps);
             this.setCustomSettingsMap(this.map);
             this.createAllPlacemark(maps);
@@ -89,11 +89,11 @@ export default class Maps {
         }).catch(error => console.log('Failed to load Yandex Maps', error));
     }
 
-    adapt() {
-        if(window.innerWidth < 1200 && window.innerWidth > 600) {
+    adaptMap() {
+        if (window.innerWidth < 1200 && window.innerWidth > 600) {
             this.zoom = 4;
-        }else if(window.innerWidth <= 600) {
-            this.coordinate = [50.18251922315779,41.63914654296874];
+        } else if (window.innerWidth <= 600) {
+            this.coordinate = [50.18251922315779, 41.63914654296874];
             this.zoom = 4;
         }
     }

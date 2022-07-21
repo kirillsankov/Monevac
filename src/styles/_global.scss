@@ -214,7 +214,7 @@ body {
       background-color: $secondPageColor;
       content: "";
       position: absolute;
-      height: 2px;
+      height: 2.2px;
       border-radius: 5px;
     }
 
@@ -566,6 +566,10 @@ body {
       padding-bottom: 19px;
     }
 
+    @media (max-width: $md) {
+      border-radius: 14px;
+    }
+
     &:hover {
       background-color: $footerTextColor;
     }
@@ -642,7 +646,7 @@ body {
 
 .map {
   padding-bottom: 81px;
-
+  overflow: hidden;
   &__wrapper {
     height: 599px;
     width: 100%;
