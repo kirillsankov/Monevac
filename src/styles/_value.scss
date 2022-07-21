@@ -1,14 +1,49 @@
 $containerWidth: 1290px;
+$containerWidthMax1400: 1140px;
+$containerWidthMaxEl: 960px;
+$containerWidthMaxL: 720px;
+$containerWidthMaxMd: 540px;
+$containerWidthMaxSm: 100%;
+
+$el: 1199px;
+$l: 991px;
+$md: 767px;
+$sm: 575px;
+
+
 $mainFontSize: 14px;
-$h1FontSize: 46px;
-$h2FontSize: 36px;
-$h3FontSize: 26px;
+
+
+$h1FontSizeDesktop: 46px;
+$h1FontSizeTablet: 32px;
+$h1FontSizeMobile: 22px;
+$h1LineHeight: 100%;
+
+
+$h2FontSizeDesktop: 36px;
+$h2FontSizeTablet: 28px;
+$h2FontSizeMobile: 22px;
+$h2LineHeightDesktop: 110%;
+$h2LineHeightTablet: 120%;
+$h2LineHeightMobile: 100%;
+
+
+$h4FontSize: 26px;
+$h4LineHeight: 120%;
+
+
 $mainPageColor: #BF2738;
 $secondPageColor: #262633;
-$regularTextColor: #797986;
+$regularMainTextColor: #797986;
+$regularSecondTextColor: #808080;
 
-$contactsBackgroundColor: #F5F5F5;
+$sectionBackgroundColor: #F5F5F5;
+
+$HoverColor: #CC2A3C;
+$ActiveColor: #991F2D;
+
 
 $footerLeftColor: #222225;
 $footerRightColor: #2A2A2E;
 $footerTextColor: #FFFFFF;
+$footerEmailColor: #F23147;

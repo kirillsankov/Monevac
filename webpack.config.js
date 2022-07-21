@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require("path");
 
 
 let mode = "development";
@@ -10,6 +11,9 @@ console.log(mode + ' mode')
 
 module.exports = {
     mode: mode,
+    entry: {
+        scripts: './src/index.js',
+    },
     output: {
         filename: "[name][contenthash].js",
         assetModuleFilename: "assets/[hash][ext][query]",
@@ -75,6 +79,10 @@ module.exports = {
         ]
     },
     devServer:{
-        hot: true,
+        static: {
+            directory: path.join(__dirname, 'src'),
+        },
+        compress: true,
+        port: 8080,
     },
 }
