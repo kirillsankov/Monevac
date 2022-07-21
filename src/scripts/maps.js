@@ -1,4 +1,5 @@
 import ymaps from 'ymaps';
+import img from '../images/marker.svg';
 
 const SELECTORS = {
     header: ".header",
@@ -7,7 +8,7 @@ const SELECTORS = {
 }
 const placeMark = {
     iconLayout: 'default#image',
-    iconImageHref: '../images/marker.svg',
+    iconImageHref: img,
     iconImageSize: [40, 40],
     iconImageOffset: [-19, -44]
 }
